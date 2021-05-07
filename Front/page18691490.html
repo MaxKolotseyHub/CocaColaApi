@@ -629,17 +629,12 @@
                                 <div class="t702__descr t-descr t-descr_xs" style="">и стань на шаг ближе к своему
                                     призу!</div>
                             </div>
-                            <form action='https://localhost:44310/api/register' method='POST' data-formactiontype="0"
-                                data-inputbox=".t-input-group">
+                            <div data-formactiontype="0" data-inputbox=".t-input-group">
                                 <!-- NO ONE SERVICES CONNECTED -->
-                                <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;">
-                                    Спасибо за участие!&nbsp;<br /><br /><a href="#popup:register">Зарегистрировать ещё
-                                        один код</a><br /><br /><a href="#popup:checkcodes">Просмотреть свои коды</a>
-                                </div>
                                 <div class="t-form__inputsbox">
                                     <div class="t-input-group t-input-group_nm" data-input-lid="1495810359387">
                                         <div class="t-input-block"> <input type="text" autocomplete="name"
-                                                name="FirstName" class="t-input js-tilda-rule " value=""
+                                                id="firstName" name="FirstName" class="t-input js-tilda-rule " value=""
                                                 placeholder="Имя" data-tilda-req="1" data-tilda-rule="name"
                                                 style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
                                             <div class="t-input-error"></div>
@@ -647,7 +642,7 @@
                                     </div>
                                     <div class="t-input-group t-input-group_nm" data-input-lid="1620378384943">
                                         <div class="t-input-block"> <input type="text" autocomplete="name"
-                                                name="LastName" class="t-input js-tilda-rule " value=""
+                                                name="LastName" class="t-input js-tilda-rule " value="" id="lastName"
                                                 placeholder="Фамилия" data-tilda-req="1" data-tilda-rule="name"
                                                 style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
                                             <div class="t-input-error"></div>
@@ -655,14 +650,15 @@
                                     </div>
                                     <div class="t-input-group t-input-group_em" data-input-lid="1495810354468">
                                         <div class="t-input-block"> <input type="text" autocomplete="email" name="Email"
-                                                class="t-input js-tilda-rule " value="" placeholder="Электронный адрес"
-                                                data-tilda-req="1" data-tilda-rule="email"
+                                                id="email" class="t-input js-tilda-rule " value=""
+                                                placeholder="Электронный адрес" data-tilda-req="1"
+                                                data-tilda-rule="email"
                                                 style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
                                             <div class="t-input-error"></div>
                                         </div>
                                     </div>
                                     <div class="t-input-group t-input-group_in" data-input-lid="1495810410810">
-                                        <div class="t-input-block"> <input type="text" name="Title"
+                                        <div class="t-input-block"> <input type="text" name="Title" id="title"
                                                 class="t-input js-tilda-rule js-tilda-mask " value=""
                                                 placeholder="Введи свой код" data-tilda-req="1"
                                                 data-tilda-mask="aaa9999"
@@ -684,8 +680,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="t-form__submit"> <button type="submit" class="t-submit"
-                                            onclick='window.location.href = "./page18691490.html"'
+                                    <div class="t-form__submit"> <button type="button" class="t-submit"
+                                            onclick="register()"
                                             style="color:#ffffff;background-color:#000000;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">Зарегистрировать</button>
                                     </div>
                                 </div>
@@ -702,7 +698,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                             <style>
                                 #rec301958797 input::-webkit-input-placeholder {
                                     color: #000000;
@@ -752,7 +748,8 @@
             </div>
             <script type="text/javascript">$(document).ready(function () {
                     setTimeout(function () { t702_initPopup('301958797'); }, 500); /* hack for Android */ var ua = navigator.userAgent.toLowerCase(); var isAndroid = ua.indexOf("android") > -1; if (isAndroid) { $('.t-body').addClass('t-body_scrollable-hack-for-android'); $('head').append("<style>@media screen and (max-width: 560px) {\n.t-body_scrollable-hack-for-android {\noverflow: visible !important;\n}\n}\n</style>"); console.log('Android css hack was inited'); }
-                });</script>
+                });
+            </script>
             <style>
                 #rec301958797 .t-input__vis-ph {
                     color: #000000;
@@ -765,6 +762,29 @@
                 $(document).ready(function () {
                     setTimeout(function () { t_animateInputs('301958797'); }, 500);
                 })
+
+                function register() {
+                    const model = {
+                        FirstName: document.getElementById('firstName').value,
+                        LastName: document.getElementById('lastName').value,
+                        Email: document.getElementById('email').value,
+                        Title: document.getElementById('title').value
+                    };
+
+                    console.log(model);
+                    fetch('https://localhost:44310/api/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(model)
+                    })
+                        .then(response => response.json())
+                        .then(_ => {
+                            window.location.href = './page18691490.html'
+                        });
+                }
+
             </script>
             <style>
                 #rec301958797 .t-btn[data-btneffects-first],
@@ -952,11 +972,7 @@
                                     table.appendChild(row);
 
                                 });
-
-
                             });
-
-
                         });
                 }
 
