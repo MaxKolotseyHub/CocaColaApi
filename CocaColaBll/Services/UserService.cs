@@ -28,15 +28,42 @@ namespace CocaColaBll.Services
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == model.Email);
             if (user == null)
-                _db.Users.Add(_mapper.Map<User>(model));
-            else
-                user.Codes.Add(_mapper.Map<Code>(model.Codes[0]));
+            {
+                _db.Users.Add(new User
+                {
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
+                });
+                await _db.SaveChangesAsync();
+                user = _db.Users.FirstOrDefault(x => x.Email == model.Email);
+            }
+
+            var code = getCodeByTitle(model.Codes[0].Title);
+            code.Used = true;
+            code.User = user;
+            user.Codes.Add(code);
             await _db.SaveChangesAsync();
         }
 
         public IEnumerable<UserBll> GetAll()
         {
             return _mapper.Map<IEnumerable<UserBll>>(_db.Users.Include("Codes").ToList());
+        }
+        public IEnumerable<CodeBll> GetAllCodes()
+        {
+            return _mapper.Map<IEnumerable<CodeBll>>(_db.Codes.ToList());
+        }
+
+        public CodeBll GetCodeByTitle(string title)
+        {
+            var code = _db.Codes.FirstOrDefault(x => x.Title == title);
+            return _mapper.Map<CodeBll>(code);
+        }
+        private Code getCodeByTitle(string title)
+        {
+            var code = _db.Codes.FirstOrDefault(x => x.Title == title);
+            return code;
         }
 
         public async Task<IEnumerable<UserBll>> GetByEmail(string email)

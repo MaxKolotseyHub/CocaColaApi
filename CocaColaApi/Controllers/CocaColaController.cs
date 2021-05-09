@@ -22,21 +22,21 @@ namespace CocaColaApi.Controllers
         }
 
         [Route("api/register"), HttpPost]
-        public async Task<IHttpActionResult> Register(AddUserViewModel user)
+        public async Task<IHttpActionResult> Register([FromBody]AddUserViewModel user)
         {
+            var code = _service.GetCodeByTitle(user.Title);
+            if (code == null)
+                return BadRequest();
+
+            if(code.Used)
+                return BadRequest();
+
             await _service.Add(new UserBll
             {
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Codes = new List<CodeBll>
-                {
-                    new CodeBll
-                    {
-                        Title = user.Title,
-                        Used = true
-                    }
-                }
+                Codes = new List<CodeBll> { code }
             });
             return Ok();
         }

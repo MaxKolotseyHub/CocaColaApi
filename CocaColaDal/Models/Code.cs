@@ -12,6 +12,6 @@ namespace CocaColaDal.Models
         public string Title { get; set; }
         public bool Used{ get; set; }
         public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public User User { get; set; }
     }
 }

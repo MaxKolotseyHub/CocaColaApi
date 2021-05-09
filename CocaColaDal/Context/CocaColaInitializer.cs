@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CocaColaDal.Context
 {
-    public class CocaColaInitializer : DropCreateDatabaseIfModelChanges<CocaColaContext>
+    public class CocaColaInitializer : DropCreateDatabaseAlways<CocaColaContext>
     {
         protected override void Seed(CocaColaContext context)
         {
@@ -48,7 +48,27 @@ namespace CocaColaDal.Context
             var code14= new Code {Title = "QHR00014", Used = true, User = user14 };
             var code15 =  new Code {Title = "QHR00015", Used = true, User = user15 };
 
-            context.Codes.AddRange(new List<Code> { code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11, code12, code13, code14, code15});
+            var codes = new List<Code> { code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11, code12, code13, code14, code15 };
+
+            for (int i = 16; i <= 100; i++)
+            {
+                string title = "";
+                if (i < 10)
+                    title = "QHR000" + i;
+
+                if (i < 100 && i>= 10 )
+                    title = "QHR00" + i;
+
+                if (i < 1000 && i >= 100)
+                    title = "QHR0" + i;
+
+                if (i < 10000 && i >= 1000)
+                    title = "QHR" + i;
+
+                codes.Add(new Code { Title = title, Used = false, User = user1});
+            }
+
+            context.Codes.AddRange(codes);
 
             context.SaveChanges();
         }

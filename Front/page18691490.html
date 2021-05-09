@@ -629,44 +629,84 @@
                                 <div class="t702__descr t-descr t-descr_xs" style="">и стань на шаг ближе к своему
                                     призу!</div>
                             </div>
-                            <div data-formactiontype="0" data-inputbox=".t-input-group">
+                            <div id="form301958797" name='form301958797' role="form" data-formactiontype="0"
+                                data-inputbox=".t-input-group" class="t-form js-form-proccess t-form_inputs-total_4 "
+                                data-success-callback="t702_onSuccess" action="https://localhost:44310/api/register"
+                                method="POST">
                                 <!-- NO ONE SERVICES CONNECTED -->
-                                <div class="t-form__inputsbox">
-                                    <div class="t-input-group t-input-group_nm" data-input-lid="1495810359387">
-                                        <div class="t-input-block"> <input type="text" autocomplete="name"
-                                                id="firstName" name="FirstName" class="t-input js-tilda-rule " value=""
-                                                placeholder="Имя" data-tilda-req="1" data-tilda-rule="name"
-                                                style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
-                                            <div class="t-input-error"></div>
+                                <div class="js-successbox t-form__successbox t-text t-text_md" style="display:none;"
+                                    id="onSuccessRegistration">
+                                    Спасибо за участие!&nbsp;<br /><br /><a
+                                        onclick="showRegistrationForm()">Зарегистрировать ещё
+                                        один код</a><br /><br /><a href="#popup:checkcodes">Просмотреть свои коды</a>
+                                </div>
+                                <div class="" id="registrationForm">
+                                    <div class="t-form__inputsbox" id="">
+                                        <div class="t-input-group t-input-group_nm" data-input-lid="1495810359387">
+                                            <div class="t-input-block"> <input type="text" autocomplete="name"
+                                                    id="firstName" name="FirstName" class="t-input js-tilda-rule "
+                                                    value="" placeholder="Имя" data-tilda-req="1" data-tilda-rule="name"
+                                                    style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                                                <div class="t-input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="t-input-group t-input-group_nm" data-input-lid="1620378384943">
+                                            <div class="t-input-block"> <input type="text" autocomplete="name"
+                                                    name="LastName" class="t-input js-tilda-rule " value=""
+                                                    id="lastName" placeholder="Фамилия" data-tilda-req="1"
+                                                    data-tilda-rule="name"
+                                                    style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                                                <div class="t-input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="t-input-group t-input-group_em" data-input-lid="1495810354468">
+                                            <div class="t-input-block"> <input type="text" autocomplete="email"
+                                                    name="Email" id="email" class="t-input js-tilda-rule " value=""
+                                                    placeholder="Электронный адрес" data-tilda-req="1"
+                                                    data-tilda-rule="email"
+                                                    style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                                                <div class="t-input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="t-input-group t-input-group_in" data-input-lid="1495810410810">
+                                            <div class="t-input-block"> <input type="text" name="Title" id="title"
+                                                    class="t-input js-tilda-rule js-tilda-mask " value=""
+                                                    placeholder="Введи свой код" data-tilda-req="1"
+                                                    data-tilda-mask="aaa9999"
+                                                    style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
+                                                <div class="t-input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="t-form__errorbox-middle">
+                                            <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
+                                                <div class="t-form__errorbox-text t-text t-text_md">
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-all">
+                                                    </p>
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-req">
+                                                    </p>
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-email">
+                                                    </p>
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-name">
+                                                    </p>
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-phone">
+                                                    </p>
+                                                    <p
+                                                        class="t-form__errorbox-item js-rule-error js-rule-error-minlength">
+                                                    </p>
+                                                    <p class="t-form__errorbox-item js-rule-error js-rule-error-string">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="" id="alreadyRegistered" style="display: none;">
+                                            <p class="text-danger">Данный код уже зарегистрирован</p>
+                                        </div>
+                                        <div class="t-form__submit"> <button type="button" class="t-submit"
+                                                onclick="register()"
+                                                style="color:#ffffff;background-color:#000000;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">Зарегистрировать</button>
                                         </div>
                                     </div>
-                                    <div class="t-input-group t-input-group_nm" data-input-lid="1620378384943">
-                                        <div class="t-input-block"> <input type="text" autocomplete="name"
-                                                name="LastName" class="t-input js-tilda-rule " value="" id="lastName"
-                                                placeholder="Фамилия" data-tilda-req="1" data-tilda-rule="name"
-                                                style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
-                                            <div class="t-input-error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="t-input-group t-input-group_em" data-input-lid="1495810354468">
-                                        <div class="t-input-block"> <input type="text" autocomplete="email" name="Email"
-                                                id="email" class="t-input js-tilda-rule " value=""
-                                                placeholder="Электронный адрес" data-tilda-req="1"
-                                                data-tilda-rule="email"
-                                                style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
-                                            <div class="t-input-error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="t-input-group t-input-group_in" data-input-lid="1495810410810">
-                                        <div class="t-input-block"> <input type="text" name="Title" id="title"
-                                                class="t-input js-tilda-rule js-tilda-mask " value=""
-                                                placeholder="Введи свой код" data-tilda-req="1"
-                                                data-tilda-mask="aaa9999"
-                                                style="color:#000000; border:1px solid #c9c9c9; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">
-                                            <div class="t-input-error"></div>
-                                        </div>
-                                    </div>
-                                    <div class="t-form__errorbox-middle">
+                                    <div class="t-form__errorbox-bottom">
                                         <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
                                             <div class="t-form__errorbox-text t-text t-text_md">
                                                 <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
@@ -680,69 +720,55 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="t-form__submit"> <button type="button" class="t-submit"
-                                            onclick="register()"
-                                            style="color:#ffffff;background-color:#000000;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">Зарегистрировать</button>
-                                    </div>
                                 </div>
-                                <div class="t-form__errorbox-bottom">
-                                    <div class="js-errorbox-all t-form__errorbox-wrapper" style="display:none;">
-                                        <div class="t-form__errorbox-text t-text t-text_md">
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-all"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-req"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-email"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-name"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-phone"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-minlength"></p>
-                                            <p class="t-form__errorbox-item js-rule-error js-rule-error-string"></p>
-                                        </div>
-                                    </div>
+                                <style>
+                                    #rec301958797 input::-webkit-input-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 input::-moz-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 input:-moz-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 input:-ms-input-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 textarea::-webkit-input-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 textarea::-moz-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 textarea:-moz-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+
+                                    #rec301958797 textarea:-ms-input-placeholder {
+                                        color: #000000;
+                                        opacity: 0.5;
+                                    }
+                                </style>
+                                <div class="t702__form-bottom-text t-text t-text_xs t-align_center">Нажимая на эту
+                                    кнопку, я
+                                    принимаю условия рекламной игры и согласен/на на обработку персональных данных.
                                 </div>
                             </div>
-                            <style>
-                                #rec301958797 input::-webkit-input-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 input::-moz-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 input:-moz-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 input:-ms-input-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 textarea::-webkit-input-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 textarea::-moz-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 textarea:-moz-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-
-                                #rec301958797 textarea:-ms-input-placeholder {
-                                    color: #000000;
-                                    opacity: 0.5;
-                                }
-                            </style>
-                            <div class="t702__form-bottom-text t-text t-text_xs t-align_center">Нажимая на эту кнопку, я
-                                принимаю условия рекламной игры и согласен/на на обработку персональных данных.</div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -763,6 +789,13 @@
                     setTimeout(function () { t_animateInputs('301958797'); }, 500);
                 })
 
+                function showRegistrationForm() {
+                    const onSuccess = document.getElementById('onSuccessRegistration');
+                    onSuccess.setAttribute('style', 'display: none');
+                    const regForm = document.getElementById('registrationForm');
+                    regForm.setAttribute('style', 'display: block');
+                }
+
                 function register() {
                     const model = {
                         FirstName: document.getElementById('firstName').value,
@@ -779,9 +812,19 @@
                         },
                         body: JSON.stringify(model)
                     })
-                        .then(response => response.json())
-                        .then(_ => {
-                            window.location.href = './page18691490.html'
+                        .then(response => {
+
+                            if (response.status == 400) {
+                                const registered = document.getElementById('alreadyRegistered');
+                                registered.setAttribute('style', 'display: block;');
+                            } else {
+                                const onSuccess = document.getElementById('onSuccessRegistration');
+                                onSuccess.setAttribute('style', 'display: block');
+                                const regForm = document.getElementById('registrationForm');
+                                regForm.setAttribute('style', 'display: none');
+                                const registered = document.getElementById('alreadyRegistered');
+                                registered.setAttribute('style', 'display: none;');
+                            }
                         });
                 }
 
@@ -920,12 +963,12 @@
                             </style>
                         </div>
 
-                        <div class="t702_wrapper">
+                        <div class="t702_wrapper pb-2" style="display: none;" id="mainCodesTable">
                             <div class="t702__text-wrapper t-align_center">
                                 <div class="t702__title t-title t-title_xxs" style="font-size:25px;">Зарегистрированные
                                     коды</div>
                             </div>
-                            <table class="table-bordered table">
+                            <table class="table-bordered table mb-2">
                                 <thead>
                                     <th>
                                         Email
@@ -955,6 +998,8 @@
                                 return;
 
                             const table = document.getElementById('codesTable');
+                            const mainTable = document.getElementById('mainCodesTable');
+                            mainTable.setAttribute('style', 'display:block;');
 
                             if (table.hasChildNodes)
                                 table.innerHTML = '';
