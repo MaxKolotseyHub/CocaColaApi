@@ -48,7 +48,7 @@ namespace CocaColaBll.Services
 
         public IEnumerable<UserBll> GetAll()
         {
-            return _mapper.Map<IEnumerable<UserBll>>(_db.Users.Include("Codes").ToList());
+            return _mapper.Map<IEnumerable<UserBll>>(_db.Users.Include("Codes").Where(x=> x.Email != "hidden"));
         }
         public IEnumerable<CodeBll> GetAllCodes()
         {

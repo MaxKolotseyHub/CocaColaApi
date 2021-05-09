@@ -14,6 +14,7 @@ namespace CocaColaDal.Context
         {
             base.Seed(context);
 
+            var hiddenUser = new User { Email = "hidden", FirstName="h", LastName="h" };
             var user1 = new User { Email = "nasty_nastya@gmail.com", FirstName="Анастасия", LastName="Крылова" };
             var user2 = new User { Email = "spongebob@gmail.com", FirstName="Спанч", LastName="Боб" };
             var user3 = new User { Email = "vladislove@gmail.com", FirstName="Владислав", LastName="Петров" };
@@ -30,7 +31,7 @@ namespace CocaColaDal.Context
             var user14 = new User { Email = "jonasbrothers@gmail.com", FirstName="Никита", LastName="Живицкий" };
             var user15 = new User { Email = "putinist@gmail.com", FirstName="Андрей", LastName="Ухтинский" };
 
-            context.Users.AddRange(new List<User> {user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15 });
+            context.Users.AddRange(new List<User> {hiddenUser,user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12, user13, user14, user15 });
 
             var code1 = new Code {Title = "QHR0001", Used = true, User = user1 };
             var code2 = new Code {Title = "QHR0002", Used = true, User = user2 };
@@ -65,7 +66,7 @@ namespace CocaColaDal.Context
                 if (i < 10000 && i >= 1000)
                     title = "QHR" + i;
 
-                codes.Add(new Code { Title = title, Used = false, User = user1});
+                codes.Add(new Code { Title = title, Used = false, User = hiddenUser});
             }
 
             context.Codes.AddRange(codes);
