@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CocaColaDal.Context
 {
-    public class CocaColaInitializer : DropCreateDatabaseAlways<CocaColaContext>
+    public class CocaColaInitializer : DropCreateDatabaseIfModelChanges<CocaColaContext>
     {
         protected override void Seed(CocaColaContext context)
         {
