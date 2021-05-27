@@ -42,12 +42,12 @@ namespace CocaColaDal.Context
             var code7 = new Code {Title = "QHR0007", Used = true, User = user7 };
             var code8 = new Code {Title = "QHR0008", Used = true, User = user8 };
             var code9 = new Code {Title = "QHR0009", Used = true, User = user9 };
-            var code10 = new Code {Title = "QHR00010", Used = true, User = user10 };
-            var code11 = new Code {Title = "QHR00011", Used = true, User = user11 };
-            var code12 = new Code {Title = "QHR00012", Used = true, User = user12 };
-            var code13 = new Code {Title = "QHR00013", Used = true, User = user13 };
-            var code14= new Code {Title = "QHR00014", Used = true, User = user14 };
-            var code15 =  new Code {Title = "QHR00015", Used = true, User = user15 };
+            var code10 = new Code {Title = "QHR0010", Used = true, User = user10 };
+            var code11 = new Code {Title = "QHR0011", Used = true, User = user11 };
+            var code12 = new Code {Title = "QHR0012", Used = true, User = user12 };
+            var code13 = new Code {Title = "QHR0013", Used = true, User = user13 };
+            var code14= new Code {Title = "QHR0014", Used = true, User = user14 };
+            var code15 =  new Code {Title = "QHR0015", Used = true, User = user15 };
 
             var codes = new List<Code> { code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11, code12, code13, code14, code15 };
 

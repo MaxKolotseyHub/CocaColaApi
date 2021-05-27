@@ -708,6 +708,9 @@
                                         <div class="" id="alreadyRegistered" style="display: none;">
                                             <p class="text-danger">Данный код уже зарегистрирован</p>
                                         </div>
+                                        <div class="" id="wrongCode" style="display: none;">
+                                            <p class="text-danger">Введеный код не существует, попробуйте еще раз.</p>
+                                        </div>
                                         <div class="t-form__submit"> <button type="button" class="t-submit"
                                                 onclick="register()"
                                                 style="color:#ffffff;background-color:#000000;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">Зарегистрировать</button>
@@ -821,9 +824,19 @@
                     })
                         .then(response => {
 
-                            if (response.status == 400) {
+                            if (response.status == 403) {
                                 const registered = document.getElementById('alreadyRegistered');
                                 registered.setAttribute('style', 'display: block;');
+
+                                const registered = document.getElementById('wrongCode');
+                                registered.setAttribute('style', 'display: none;');
+                            } else if (response.status == 404) {
+
+                                const registered = document.getElementById('alreadyRegistered');
+                                registered.setAttribute('style', 'display: none;');
+                                const registered = document.getElementById('wrongCode');
+                                registered.setAttribute('style', 'display: block;');
+
                             } else {
                                 const onSuccess = document.getElementById('onSuccessRegistration');
                                 onSuccess.setAttribute('style', 'display: block');
@@ -908,6 +921,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="" id="wrongEmail" style="display: none;">
+                                        <p class="text-danger container" style="margin: 5px;">Не найдено
+                                            зарегистрированных кодов
+                                            для
+                                            данного адреса.</p>
+                                    </div>
                                     <div class="t-form__submit"> <button type="button" onclick="geCodes()"
                                             class="t-submit"
                                             style="color:#ffffff;background-color:#000000;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;">Просмотр</button>
@@ -970,6 +989,7 @@
                             </style>
                         </div>
 
+
                         <div class="t702_wrapper pb-2" style="display: none;" id="mainCodesTable">
                             <div class="t702__text-wrapper t-align_center">
                                 <div class="t702__title t-title t-title_xxs" style="font-size:25px;">Зарегистрированные
@@ -998,7 +1018,22 @@
                     const email = document.getElementById('inputByEmail').value;
 
                     fetch('https://localhost:44310/api/user?email=' + email, { method: 'GET' })
-                        .then(response => response.json())
+                        .then(response => {
+                            if (response.status == 404) {
+
+                                const registered = document.getElementById('wrongEmail');
+                                registered.setAttribute('style', 'display: block;');
+                                const mainTable = document.getElementById('mainCodesTable');
+                                mainTable.setAttribute('style', 'display: none;');
+                                return null;
+                            } else {
+
+                                const registered = document.getElementById('wrongEmail');
+                                registered.setAttribute('style', 'display: none;');
+
+                                return response.json();
+                            }
+                        })
                         .then(result => {
                             console.log(result);
                             if (!result)

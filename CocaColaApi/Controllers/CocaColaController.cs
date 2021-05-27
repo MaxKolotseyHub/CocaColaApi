@@ -26,10 +26,10 @@ namespace CocaColaApi.Controllers
         {
             var code = _service.GetCodeByTitle(user.Title);
             if (code == null)
-                return BadRequest();
+                return NotFound();
 
             if(code.Used)
-                return BadRequest();
+                return StatusCode(HttpStatusCode.Forbidden);
 
             await _service.Add(new UserBll
             {
@@ -46,7 +46,11 @@ namespace CocaColaApi.Controllers
         {
             if (string.Equals(email, adminEmail, StringComparison.OrdinalIgnoreCase))
                 return Ok(_service.GetAll());
-            return Ok( await _service.GetByEmail(email));
+            var result= await _service.GetByEmail(email);
+            if (result.ToList()[0] == null)
+                return NotFound();
+            else
+            return Ok(result);
         }
     }
 }
