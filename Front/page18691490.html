@@ -828,14 +828,14 @@
                                 const registered = document.getElementById('alreadyRegistered');
                                 registered.setAttribute('style', 'display: block;');
 
-                                const registered = document.getElementById('wrongCode');
-                                registered.setAttribute('style', 'display: none;');
+                                const wrongCode = document.getElementById('wrongCode');
+                                wrongCode.setAttribute('style', 'display: none;');
                             } else if (response.status == 404) {
 
                                 const registered = document.getElementById('alreadyRegistered');
                                 registered.setAttribute('style', 'display: none;');
-                                const registered = document.getElementById('wrongCode');
-                                registered.setAttribute('style', 'display: block;');
+                                const wrongCode = document.getElementById('wrongCode');
+                                wrongCode.setAttribute('style', 'display: block;');
 
                             } else {
                                 const onSuccess = document.getElementById('onSuccessRegistration');
